@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        .main{
+            text-align: center;
+        }
+
+        .loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+    </style>
+</head>
+<body>
+
+    <div id='loading' class='loader'></div>
+
+
+<div class="main" id='mainContainer' hidden>
+    <!-- <img src="https://avatars.githubusercontent.com/u/67265104?v=4" height="100" width="100"> -->
+        <img id='profileImage' height="100" width="100">
+
+    <h2 id='fullname'></h2>
+    <p id='bio'></p>
+    <h5 id='followersInformation'></h5>
+    <p>Check me on <a id=githubLink>Github</a></p>
+    <a href="https://twitter.com/shakya_shreeya?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false">Follow @shakya_shreeya</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</div>
+
+
+<script>
+    fetch("https://api.github.com/users/Shreeya777")
+        .then(response=>response.json())
+        .then(function(data){
+            console.log(data)
+
+
+            let followersCount=data['followers']
+            let followersInfo= `I have been followed by ${followersCount} people on github`
+            document.getElementById('profileImage').src=data['avatar_url']
+            document.getElementById('fullname').textContent=data['name']
+            document.getElementById('bio').textContent=data['bio']
+            document.getElementById('followersInformation').textContent=followersInfo
+            document.getElementById('githubLink').href=data['html_url']
+
+
+            document.getElementById('mainContainer').hidden=false
+            document.getElementById('loading').hidden=true
+
+
+        })
+</script>
+    
+</body>
+</html>
