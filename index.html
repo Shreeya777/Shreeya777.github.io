@@ -56,7 +56,7 @@
         }
         .main{
             text-align: center;
-            margin: 20px;
+            margin: 10px;
             line-height: 0.9;
         }
 
@@ -123,7 +123,7 @@
                 <p>Check me on <a id=githubLink><i class="fa fa-github" style="color: #000000;"></i> Github</a></p>
                 <p>My Repositories:</p> <a id='link0'>Dummy</a> <a id='link1'>Dummy1</a> <a id='link2'>Dummy2</a> <a id='link3'>Dummy3</a>
                 <p>These are just dummy repositories as all my repositories are private</p>
-                <p><a href="https://twitter.com/shakya_shreeya?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false"><i class="fa fa-twitter" style="color: #000000;"></i>Follow @shakya_shreeya</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
+                <a href="https://twitter.com/shakya_shreeya?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false"><i class="fa fa-twitter" style="color: #000000;"></i>Follow @shakya_shreeya</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
             </div>
     
@@ -153,17 +153,11 @@
                     .then(function(data){
                         console.log(data)
                         for (i = 0; i < data.length; i++) {
-                            // variables from api 
+                            // variable from api 
                             var repo_url = data[i].html_url;
                             document.getElementById('link'+[i]).href=repo_url
                         }
-    
-                    // var username = data[i].owner.login;
-                    // var repo_name = data[i].name;
-                    // var repo_description = data[i].description;
-                    // var repo_language = data[i].language;
-                    // var repo_stars = data[i].stargazers_count;
-                    // var repo_forks = data[i].forks;      
+         
                     })
     
             </script>
