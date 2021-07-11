@@ -121,7 +121,7 @@
                 <p id='bio'></p>
                 <h5 id='followersInformation'></h5>
                 <p>Check me on <a id=githubLink><i class="fa fa-github" style="color: #000000;"></i> Github</a></p>
-                <p>My Repositories:</p> <a id='link0'>Dummy</a> <a id='link1'>Dummy1</a> <a id='link2'>Dummy2</a> <a id='link3'>Dummy3</a>
+                <p>My Repositories:</p> <a id='link0'><i id='name0'></i></a> <a id='link1'><i id='name1'></i></a> <a id='link2'><i id='name2'></i></a> <a id='link3'><i id='name3'></i></a>
                 <p>These are just dummy repositories as all my repositories are private</p>
                 <a href="https://twitter.com/shakya_shreeya?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-show-count="false"><i class="fa fa-twitter" style="color: #000000;"></i>Follow @shakya_shreeya</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
@@ -153,9 +153,11 @@
                     .then(function(data){
                         console.log(data)
                         for (i = 0; i < data.length; i++) {
-                            // variable from api 
+                            // variables from api 
                             var repo_url = data[i].html_url;
+                            var repo_name = data[i].name;
                             document.getElementById('link'+[i]).href=repo_url
+                            document.getElementById('name'+[i]).textContent=repo_name
                         }
          
                     })
